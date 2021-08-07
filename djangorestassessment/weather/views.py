@@ -9,6 +9,9 @@ from rest_framework import status
 # Create your views here.
 
 def index(request):
+    """
+    Index page search bar query request is processed.
+    """
     if request.method == 'POST':
         city = request.POST.get("city")
         result = requests.get("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+settings.API_KEY)
@@ -29,7 +32,7 @@ def index(request):
 @api_view()
 def weather_data_api(request):
     """
-Returns json data of weather for the given city
+Returns json data of weather for the given city.
 
     """
     city = request.query_params['city']

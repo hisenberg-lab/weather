@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand">weather</a>
+          <a class="navbar-brand"><h1>Weather</h1></a>
           <form class="d-flex" method="POST" action={% url 'index' %}>
             {% csrf_token %}
             <input class="form-control me-2" type="search" placeholder="Enter city name" aria-label="Search" name="city">
@@ -21,14 +21,14 @@
       </nav>
   <br />
   <br />
-  <div class="container">
+  <div class="container" style="width: 50%;">
     {% if city and weather and coordinates and temp and humidity %}
-    <ul class="list-group">
-        <li class="list-group-item">City: {{city}}</li>
-        <li class="list-group-item">Coordinates: {{coordinates}}</li>
-        <li class="list-group-item">Weather: {{weather}}</li>
-        <li class="list-group-item">Temp: {{temp}}</li>
-        <li class="list-group-item">Humidity: {{humidity}}</li>
+    <ul class="list-group" style="align-items: center;">
+        <li class="list-group-item list-group-item-danger">City: {{city}}</li>
+        <li class="list-group-item list-group-item-success">Coordinates: {{coordinates}}</li>
+        <li class="list-group-item list-group-item-danger">Weather: {{weather}}</li>
+        <li class="list-group-item list-group-item-success">Temp: {{temp}}</li>
+        <li class="list-group-item list-group-item-danger">Humidity: {{humidity}}</li>
       </ul>
     {% endif %}
     {% if error %}
