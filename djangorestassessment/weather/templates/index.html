@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>weather</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand">weather</a>
+          <form class="d-flex" method="POST" action={% url 'index' %}>
+            {% csrf_token %}
+            <input class="form-control me-2" type="search" placeholder="Enter city name" aria-label="Search" name="city">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+  <br />
+  <br />
+  <div class="container">
+    {% if city and weather and coordinates and temp and humidity %}
+    <ul class="list-group">
+        <li class="list-group-item">City: {{city}}</li>
+        <li class="list-group-item">Coordinates: {{coordinates}}</li>
+        <li class="list-group-item">Weather: {{weather}}</li>
+        <li class="list-group-item">Temp: {{temp}}</li>
+        <li class="list-group-item">Humidity: {{humidity}}</li>
+      </ul>
+    {% endif %}
+    {% if error %}
+      <h3>Invalid City Name</h3>
+    {% endif %}
+
+  </div>
+</body>
+
+</html>
+
