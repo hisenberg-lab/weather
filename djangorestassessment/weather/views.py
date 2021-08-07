@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import requests, json
 from django.http import HttpResponse
-
+from django.conf import settings
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -11,13 +11,11 @@ from rest_framework import status
 @api_view()
 def weather_data_api(request):
     """
-Makes an API call to the open source weather API
-Gets the response in json format
-Returns the same json data received above and send it to the API caller
+Returns json data of weather for the given city
 
     """
     city = request.query_params['city']
-    result = requests.get("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=dfd763dcff52ad64fddb4e8b8a5502f0")
+    result = requests.get("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+settings.API_KEY)
     if not result:
         response_data = {'message':'Invalid City Name'}
         return Response(response_data, status=status.HTTP_404_NOT_FOUND)
