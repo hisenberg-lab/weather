@@ -29,7 +29,7 @@ API_KEY = os.getenv('API_KEY', 'dfd763dcff52ad64fddb4e8b8a5502f0')
 DEBUG = os.getenv('DJANGO_DEBUG', '') != 'False'
 
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['api-weather03.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
