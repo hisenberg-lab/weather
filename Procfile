@@ -1,1 +1,3 @@
-web: gunicorn core.wsgi --log-file -
+web: gunicorn djangorestassessment.wsgi:application --log-file -
+python manage.py collectstatic --noinput
+manage.py migrate
