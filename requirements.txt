@@ -11,6 +11,7 @@ environ==1.0
 gunicorn==20.1.0
 idna @ file:///home/linux1/recipes/ci/idna_1610986105248/work
 psycopg2 @ file:///C:/ci/psycopg2_1612298766762/work
+psycopg2-binary==2.9.1
 pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
 pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1608057966937/work
 PySocks @ file:///C:/ci/pysocks_1605307512533/work
