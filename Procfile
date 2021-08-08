@@ -1,1 +1,1 @@
-web: gunicorn djangorestassessment.wsgi --log-file -
+web: gunicorn core.wsgi --log-file -
